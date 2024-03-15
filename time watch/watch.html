@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            /* padding: 5px 10px; */
+            display: flex;
+            justify-content: center;
+            /* background: #d48787; */
+            align-items: center;
+        }
+        .time{
+            /* background: #000; */
+            /* color: white; */
+            font-size: 25px;
+            padding: 10px 10px;  
+        }
+        .one{
+            padding-left: 20px;
+        }
+        .three{
+            padding-right: 20px;
+        }
+        #restart{
+           height: 40px;
+           width: auto;
+           padding: 0px 30px;
+            margin-left: 20px;
+            background: #aef3dd;
+        }
+        #restart:hover{
+            background-color: black;
+            color: azure;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+    <p id="hour" class="time one">:</p>
+    <p id="minit"  class="time">:</p>
+    <p id="second" class="time three"> </p> <br>
+    <!-- <button id="restart"> reset</button> -->
+    </div>
+    <script>
+        let hr = 0;
+        let min = 0;
+        let sec = 0;
+       function time(){
+        if(sec == 60){
+            min++;
+            sec = 0;
+        }
+        else if(min == 60){
+            hr++;
+            min = 0;
+        }
+        else if(hr == 12){
+            hr = 0;
+            min = 0;
+            sec = 0;
+        }
+        
+        document.querySelector('#hour').innerHTML=`${hr} : `;
+        document.querySelector('#minit').innerHTML=`${min} : `;
+        document.querySelector('#second').innerHTML=`${++sec}`;
+
+        let off = restart;
+
+       }
+       setInterval(time,100);
+    //    let restart = document.querySelector("#restart");
+    //     restart.addEventListener("click",function(){
+    //         hr=0;
+    //         min=0;
+    //         sec=0;
+    //     })
+       
+    </script>
+</body>
+</html>
